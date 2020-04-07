@@ -1,0 +1,291 @@
+[colors]
+background = #2d323d
+#background-trans = #cc2d323d
+#background-trans = #b32d323d
+background-trans = #b3404552
+background-alt = #2d323d
+foreground = #d3dae3
+foreground-alt = #d3dae3
+primary = #ffb52a
+secondary = #e60053
+alert = #e57373
+
+red300 = #e57373
+red300-light = #ffa4a2
+red300-dark = #af4448
+pink300 = #f06292
+pink300-light = #ff94c2
+pink300-dark = #ba2d65
+purple300 = #ba68c8
+purple300-light = #ee98fb
+purple300-dark = #883997
+deeppurple300 = #9575cd
+deeppurple300-light = #c7a4ff
+deeppurple300-dark = #65499c
+indigo300 = #7986cb
+indigo300-light = #aab6fe
+indigo300-dark = #49599a
+blue300 = #64b5f6
+blue300-light = #9be7ff
+blue300-dark = #2286c3
+lightblue300 = #4fc3f7
+lightblue300-light = #8bf6ff
+lightblue300-dark = #0093c4
+cyan300 = #4dd0e1
+cyan300-light = #88ffff
+cyan300-dark = #009faf
+teal300 = #4db6ac
+teal300-light = #82e9de
+teal300-dark = #00867d
+green300 = #81c784
+green300-light = #b2fab4
+green300-dark = #519657
+lightgreen300 = #aed581
+lightgreen300-light = #e1ffb1
+lightgreen300-dark = #7da453
+lime300 = #dce775
+lime300-light = #ffffa6
+lime300-dark = #a8b545
+yellow300 = #fff176
+yellow300-light = #ffffa8
+yellow300-dark = #cabf45
+amber300 = #ffd54f
+amber300-light = #ffff81
+amber300-dark = #c8a415
+orange300 = #ffb74d
+orange300-light = #ffe97d
+orange300-dark = #c88719
+deeporange300 = #ff8a65
+deeporange300-light = #ffbb93
+deeporange300-dark = #c75b39
+brown300 = #a1887f
+brown300-light = #d3b8ae
+brown300-dark = #725b53
+grey300 = #e0e0e0
+grey300-light = #ffffff
+grey300-dark = #aeaeae
+bluegrey300 = #90a4ae
+bluegrey300-light = #c1d5e0
+bluegrey300-dark = #62757f
+
+
+
+[bar/tyn]
+monitor = ${env:MONITOR:HDMI-2}
+width = 100%
+height = 20
+radius = 0
+fixed-center = false
+background = ${colors.background-trans}
+foreground = ${colors.foreground}
+line-size = 1
+line-color = #f00
+border-size = 0
+border-color = #00000000
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+module-margin-top = 3
+;font-0 = fixed:pixelsize=10;1
+font-0 = LiberatonSansRegular:size=8;2
+;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+;font-2 = siji:pixelsize=9;0
+font-1 = FontAwesome5Free:style=Solid:size=9;2
+font-2 = FontAwesome5Free:style=Regular:size=9;2
+font-3 = FontAwesome5Brands:style=Regular:size=9;2
+modules-left = i3
+modules-center =
+modules-right = xwindow machine nightmode-stat pulseaudio xkeyboard mpd memory cpu temperature wlan date
+tray-position = right
+tray-padding = 2
+;tray-transparent = true
+tray-background = ${colors.background-trans}
+cursor-click =
+cursor-scroll =
+bottom = true
+;wm-restack = i3
+;override-redirect = false
+
+[module/machine]
+type = custom/script
+exec = echo "$USER@$HOSTNAME.local"
+;exec = echo $USER@$HOSTNAME
+tail = false
+interval = 120
+label =  %output:0:32:...%
+format = <label>
+format-underline = ${colors.blue300}
+format-padding = 0
+
+[module/nightmode-stat]
+type = custom/script
+exec = if [ -d /tmp/nightmode-$USER ]; then if [ -f /tmp/nightmode-$USER/stat ]; then  if [ `cat /tmp/nightmode-$USER/stat` -eq "1" ]; then echo " active"; else echo " inactive"; fi; else echo " inactive"; fi; fi
+tail = false
+interval = 10
+format = <label>
+format-underline = ${colors.lime300}
+format-padding = 0
+
+[module/xwindow]
+type = internal/xwindow
+format = <label>
+label =  %title%
+label-underline = ${colors.red300}
+label-maxlen = 15
+label-empty = 
+;label-empty-underline = ${colors.yellow300}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_06_00.6.analog-stereo
+use-ui-max = true
+interval = 5
+format-volume-underline = ${colors.green300}
+format-volume = <ramp-volume> <label-volume>
+format-muted-underline = ${colors.orange300}
+label-volume = %percentage%%
+label-muted =  muted
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+
+[module/xkeyboard]
+type = internal/xkeyboard
+format = <label-layout> <label-indicator>
+format-spacing = 0
+label-layout =  %name% 
+label-layout-underline = ${colors.cyan300}
+label-indicator-on = %name%
+label-indicator-on-underline = ${colors.cyan300}
+layout-icon-default = some-icon
+layout-icon-0 = ch;C
+layout-icon-1 = us;U
+indicator-icon-default = 
+indicator-icon-0 = caps lock;-CL;+CL
+indicator-icon-1 = scroll lock;;+SL
+indicator-icon-2 = num lock;-NL;+NL
+
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+interval = 2
+format-online-underline = ${colors.pink300}
+format-online = <label-song> <label-time>
+format-playing = ${self.format-online}
+format-paused = ${self.format-online}
+format-stopped = ${self.format-online}
+format-offline = <label-offline>
+label-song-maxlen = 24
+label-song =  %artist% - %title%
+label-offline =
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+enable-click = false
+enable-scroll = false
+wrapping-scroll = false
+reverse-scroll = false
+label-mode-padding = 2
+label-mode-foreground = ${colors.background}
+label-mode-background = ${colors.foreground}
+label-focused = %index%
+label-focused-background = ${colors.foreground}
+label-focused-foreground = ${colors.background}
+label-focused-underline= ${colors.red300}
+label-focused-padding = 2
+label-unfocused = %index%
+label-unfocused-padding = 2
+label-visible = %index%
+label-visible-background =  ${colors.foreground}
+label-visible-underline = ${colors.red300-light}
+label-visible-padding = 2
+label-urgent = %index%
+label-urgent-background = ${colors.red300}
+label-urgent-padding = 2
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format = <label>
+label =  %percentage-cores%
+label-underline = ${colors.deeporange300}
+
+[module/memory]
+type = internal/memory
+interval = 3
+format = <label>
+label =  %gb_used%/%gb_total%
+label-underline = ${colors.teal300}
+
+[module/wlan]
+type = internal/network
+interface = wlp6s0f3u2
+interval = 3.0
+format-connected = <label-connected> <ramp-signal>
+format-connected-underline = ${colors.blue300-light}
+label-connected =  %essid%
+label-connected-maxlen = 24
+format-disconnected-underline = ${colors.blue300-light}
+label-disconnected =  not connected 
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+ramp-signal-foreground = ${colors.foreground}
+;ramp-signal-underline = ${colors.blue300-light}
+
+[module/eth]
+type = internal/network
+interface = enp5s0
+interval = 3.0
+format-connected-underline = ${colors.yellow300}
+format-connected-prefix = "con"
+format-connected-prefix-foreground = ${colors.green300}
+label-connected =  %local_ip%
+format-disconnected =
+
+[module/temperature]
+type = internal/temperature
+interval = 1
+thermal-zone = 0
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
+base-temperature = 20
+warn-temperature = 60
+units = true
+format = <ramp> <label>
+format-underline = ${colors.indigo300-light}
+format-warn = <ramp> <label-warn>
+label = CPU %temperature-c%
+label-warn = CPU %temperature-c%
+label-warn-foreground = ${colors.red300-light}
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+;ramp-foreground = #55
+
+[module/date]
+type = internal/date
+interval = 5
+date = "%A, %d %b %Y"
+;date-alt = " %d-%m-%Y"
+time = %H:%M:%S
+;time-alt = %H:%M:%S
+;format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.orange300-light}
+label =  %time%   %date%
+
+[settings]
+gscreenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini

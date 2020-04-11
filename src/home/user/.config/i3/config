@@ -24,11 +24,12 @@ font pango:monospace 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i /home/septian/Pictures/Wallpapers/alex-knight-760570-unsplash.jpg
+exec --no-startup-id xss-lock --transfer-sleep-lock -- tynlock
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -323,10 +324,12 @@ exec --no-startup-id /usr/bin/parcellite -n
 exec --no-startup-id /usr/bin/xfce4-volumed-pulse
 exec --no-startup-id thunar --daemon
 exec --no-startup-id mpd
+exec --no-startup-id xset s on
+exec --no-startup-id xset s 300
 
 focus_follows_mouse no
 focus_on_window_activation smart
-default_border pixel 1
+default_border pixel 2
 #smart_gaps on
 gaps inner 10
 #gaps outer 10
@@ -340,7 +343,7 @@ bindsym $mod+Shift+N exec --no-startup-id nightmode on-off
 bindsym $mod+Shift+w exec --no-startup-id rofi -show windowcd
 bindsym Ctrl+$mod+E exec --no-startup-id rofi -show emoji -modi emoji
 bindsym $mod+Shift+Return exec --no-startup-id xfce4-terminal --initial-title="xfce4-terminal-floating"
-#bindsym $mod+Alt+Delete exec --no-startup-id tynlock
+bindsym Ctrl+$mod+l exec --no-startup-id tynlock
 bindsym Print exec --no-startup-id flameshot full -p ~/Pictures
 bindsym Shift+Print exec --no-startup-id flameshot gui -p ~/Pictures
 bindsym $mod+t border pixel 1
@@ -368,4 +371,5 @@ for_window [ class="Gtk-recordMyDesktop" ] floating enable
 for_window [ title="Android Virtual Device Manager" ] floating enable
 for_window [ title="Welcome to Android Studio" ] floating enable
 for_window [ class="java-lang-Thread" ] floating enable
+for_window [ title="About Mozilla Firefox" ] floating enable
 

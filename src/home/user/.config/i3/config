@@ -25,6 +25,8 @@ font pango:monospace 8
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i /home/septian/Pictures/Wallpapers/alex-knight-760570-unsplash.jpg
+
+# Use tynlock
 exec --no-startup-id xss-lock --transfer-sleep-lock -- tynlock
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -54,6 +56,7 @@ bindsym $mod+Shift+q kill
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# Rofi menu
 bindsym $mod+d exec --no-startup-id rofi -show run
 
 # change focus
@@ -163,27 +166,68 @@ mode "resize" {
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
 
+        bindsym Shift+j resize shrink width 30 px or 30 ppt
+        bindsym Shift+k resize grow height 30 px or 30 ppt
+        bindsym Shift+l resize shrink height 30 px or 30 ppt
+        bindsym Shift+semicolon resize grow width 30 px or 30 ppt
+
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
+        bindsym Shift+Left resize shrink width 30 px or 30 ppt
+        bindsym Shift+Down resize grow height 30 px or 30 ppt
+        bindsym Shift+Up resize shrink height 30 px or 30 ppt
+        bindsym Shift+Right resize grow width 30 px or 30 ppt
+
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#}
+# Custom window move
+set $mode_move Move : (Ctrl or Shift) Left(left), Down(down), Right(right), Up(up), j(left), k(down), l(up), semicolon(right)
+mode "$mode_move" {
+    bindsym Left exec --no-startup-id "i3-msg 'move left, move left, move left, move left, move left'"
+    bindsym Down exec --no-startup-id "i3-msg 'move down, move down, move down, move down, move down'"
+    bindsym Up exec --no-startup-id "i3-msg 'move up, move up, move up, move up, move up'"
+    bindsym Right exec --no-startup-id "i3-msg 'move right, move right, move right, move right, move right'"
 
+    bindsym Shift+Left exec --no-startup-id "i3-msg 'move left, move left, move left, move left, move left, move left, move left, move left, move left, move left'"
+    bindsym Shift+Down exec --no-startup-id "i3-msg 'move down, move down, move down, move down, move down, move down, move down, move down, move down, move down'"
+    bindsym Shift+Up exec --no-startup-id "i3-msg 'move up, move up, move up, move up, move up, move up, move up, move up, move up, move up'"
+    bindsym Shift+Right exec --no-startup-id "i3-msg 'move right, move right, move right, move right, move right, move right, move right, move right, move right, move right'"
 
+    bindsym j exec --no-startup-id "i3-msg 'move left, move left, move left, move left, move left'"
+    bindsym k exec --no-startup-id "i3-msg 'move down, move down, move down, move down, move down'"
+    bindsym l exec --no-startup-id "i3-msg 'move up, move up, move up, move up, move up'"
+    bindsym semicolon exec --no-startup-id "i3-msg 'move right, move right, move right, move right, move right'"
+
+    bindsym Shift+j exec --no-startup-id "i3-msg 'move left, move left, move left, move left, move left, move left, move left, move left, move left, move left'"
+    bindsym Shift+k exec --no-startup-id "i3-msg 'move down, move down, move down, move down, move down, move down, move down, move down, move down, move down'"
+    bindsym Shift+l exec --no-startup-id "i3-msg 'move up, move up, move up, move up, move up, move up, move up, move up, move up, move up'"
+    bindsym Shift+semicolon exec --no-startup-id "i3-msg 'move right, move right, move right, move right, move right, move right, move right, move right, move right, move right'"
+
+	bindsym Ctrl+Left move left
+	bindsym Ctrl+Down move down
+	bindsym Ctrl+Up move up
+	bindsym Ctrl+Right move right
+
+	bindsym Ctrl+j move left
+	bindsym Ctrl+k move down
+	bindsym Ctrl+l move up
+	bindsym Ctrl+semicolon move right
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+m mode "$mode_move"
+
+# Gaps
 set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -194,7 +238,6 @@ set $mode_gaps_right Right Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_bottom Bottom Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_left Left Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
-
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
         bindsym i      mode "$mode_gaps_inner"
@@ -207,7 +250,6 @@ mode "$mode_gaps" {
         bindsym Return mode "$mode_gaps"
         bindsym Escape mode "default"
 }
-
 mode "$mode_gaps_outer" {
         bindsym plus  gaps outer current plus 5
         bindsym minus gaps outer current minus 5
@@ -304,8 +346,10 @@ mode "$mode_gaps_left" {
         bindsym Return mode "$mode_gaps"
         bindsym Escape mode "default"
 }
+gaps inner 10
+#smart_gaps on
 
-
+# Color
 # class                 border  backgr. text    indicator child_border
 client.focused          #767b87 #767b87 #d3dae3 #A14769   #767b87
 client.focused_inactive #2d323d #2d323d #d3dae3 #2d323d   #2d323d
@@ -314,6 +358,7 @@ client.urgent           #A14769 #A14769 #767b87 #A14769   #A14769
 client.placeholder      #2d323d #2d323d #d3dae3 #2d323d   #2d323d
 client.background       #d3dae3
 
+# Autostart
 exec --no-startup-id sh $HOME/.fehbg
 exec --no-startup-id /usr/bin/compton
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -327,14 +372,12 @@ exec --no-startup-id mpd
 exec --no-startup-id xset s on
 exec --no-startup-id xset s 300
 
+# Add some rules
 focus_follows_mouse no
 focus_on_window_activation smart
 default_border pixel 2
-#smart_gaps on
-gaps inner 10
-#gaps outer 10
 
-
+# Custom keyboard shorcut
 bindsym XF86AudioPlay exec --no-startup-id tmpc play
 bindsym F8 exec --no-startup-id tmpc stop
 bindsym XF86AudioNext exec --no-startup-id tmpc next
@@ -352,8 +395,9 @@ bindsym $mod+u border pixel 3
 bindsym $mod+i border pixel 4
 bindsym $mod+o border pixel 5
 bindsym $mod+p border pixel 6
+bindsym $mod+Ctrl+Return exec --no-startup-id /home/septian/.local/bin/terminal-big.sh
 
-
+# Window rules
 for_window [ title="XBindKey: Hit a key" ] floating enable
 for_window [ class="Gemojipicker" ] floating enable
 for_window [ title="xfce4-terminal-floating" ] floating enable
@@ -372,4 +416,7 @@ for_window [ title="Android Virtual Device Manager" ] floating enable
 for_window [ title="Welcome to Android Studio" ] floating enable
 for_window [ class="java-lang-Thread" ] floating enable
 for_window [ title="About Mozilla Firefox" ] floating enable
-
+for_window [ class="Xarchiver" ] floating enable
+for_window [ class="TelegramDesktop" ] floating enable
+for_window [ title="Event Tester" ] floating enable
+for_window [ class="Navigator" ] floating enable

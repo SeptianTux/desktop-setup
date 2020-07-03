@@ -1,13 +1,25 @@
 [colors]
-background = #2d323d
-//background-trans = #cc2d323d
-background-trans = #b32d323d
-background-alt = #2d323d
-foreground = #d3dae3
-foreground-alt = #d3dae3
+background = #b3d3dae3
+#background-trans = #cc2d323d
+#background-trans = #b32d323d
+background-trans = #b3d3dae3
+background-alt = #b3d3dae3
+foreground = #404552
+foreground-alt = #404552
 primary = #ffb52a
 secondary = #e60053
 alert = #e57373
+
+#background = #2d323d
+#background-trans = #cc2d323d
+#background-trans = #b32d323d
+#background-trans = #b3404552
+#background-alt = #2d323d
+#foreground = #d3dae3
+#foreground-alt = #d3dae3
+#primary = #ffb52a
+#secondary = #e60053
+#alert = #e57373
 
 red300 = #e57373
 red300-light = #ffa4a2
@@ -69,7 +81,7 @@ bluegrey300-dark = #62757f
 
 
 
-[bar/example]
+[bar/tyn]
 monitor = ${env:MONITOR:HDMI-2}
 width = 100%
 height = 20
@@ -108,13 +120,13 @@ bottom = true
 
 [module/machine]
 type = custom/script
-exec = echo "$USER@$HOSTNAME.local"
+exec = echo "$USER@$HOSTNAME"
 ;exec = echo $USER@$HOSTNAME
 tail = false
 interval = 120
 label =  %output:0:32:...%
 format = <label>
-format-underline = ${colors.blue300}
+format-underline = ${colors.foreground}
 format-padding = 0
 
 [module/nightmode-stat]
@@ -123,26 +135,26 @@ exec = if [ -d /tmp/nightmode-$USER ]; then if [ -f /tmp/nightmode-$USER/stat ];
 tail = false
 interval = 10
 format = <label>
-format-underline = ${colors.lime300}
+format-underline = ${colors.foreground}
 format-padding = 0
 
 [module/xwindow]
 type = internal/xwindow
 format = <label>
 label =  %title%
-label-underline = ${colors.red300}
+label-underline = ${colors.foreground}
 label-maxlen = 15
 label-empty = 
-;label-empty-underline = ${colors.yellow300}
+;label-empty-underline = ${colors.foreground}
 
 [module/pulseaudio]
 type = internal/pulseaudio
 sink = alsa_output.pci-0000_06_00.6.analog-stereo
 use-ui-max = true
 interval = 5
-format-volume-underline = ${colors.green300}
+format-volume-underline = ${colors.foreground}
 format-volume = <ramp-volume> <label-volume>
-format-muted-underline = ${colors.orange300}
+format-muted-underline = ${colors.foreground}
 label-volume = %percentage%%
 label-muted =  muted
 ramp-volume-0 = 
@@ -155,9 +167,9 @@ type = internal/xkeyboard
 format = <label-layout> <label-indicator>
 format-spacing = 0
 label-layout =  %name% 
-label-layout-underline = ${colors.cyan300}
+label-layout-underline = ${colors.foreground}
 label-indicator-on = %name%
-label-indicator-on-underline = ${colors.cyan300}
+label-indicator-on-underline = ${colors.foreground}
 layout-icon-default = some-icon
 layout-icon-0 = ch;C
 layout-icon-1 = us;U
@@ -171,7 +183,7 @@ type = internal/mpd
 host = 127.0.0.1
 port = 6600
 interval = 2
-format-online-underline = ${colors.pink300}
+format-online-underline = ${colors.foreground}
 format-online = <label-song> <label-time>
 format-playing = ${self.format-online}
 format-paused = ${self.format-online}
@@ -195,7 +207,7 @@ label-mode-background = ${colors.foreground}
 label-focused = %index%
 label-focused-background = ${colors.foreground}
 label-focused-foreground = ${colors.background}
-label-focused-underline= ${colors.red300}
+label-focused-underline= ${colors.foreground}
 label-focused-padding = 2
 label-unfocused = %index%
 label-unfocused-padding = 2
@@ -212,39 +224,39 @@ type = internal/cpu
 interval = 2
 format = <label>
 label =  %percentage-cores%
-label-underline = ${colors.deeporange300}
+label-underline = ${colors.foreground}
 
 [module/memory]
 type = internal/memory
 interval = 3
 format = <label>
 label =  %gb_used%/%gb_total%
-label-underline = ${colors.teal300}
+label-underline = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
 interface = wlp6s0f3u2
 interval = 3.0
 format-connected = <label-connected> <ramp-signal>
-format-connected-underline = ${colors.blue300-light}
+format-connected-underline = ${colors.foreground}
 label-connected =  %essid%
 label-connected-maxlen = 24
-format-disconnected-underline = ${colors.blue300-light}
+format-disconnected-underline = ${colors.foreground}
 label-disconnected =  not connected 
-ramp-signal-0 = 😱
-ramp-signal-1 = 😠
-ramp-signal-2 = 😒
-ramp-signal-3 = 😊
-ramp-signal-4 = 😃
-ramp-signal-5 = 😈
+ramp-signal-0 = 10%
+ramp-signal-1 = 20%
+ramp-signal-2 = 40%
+ramp-signal-3 = 60%
+ramp-signal-4 = 80%
+ramp-signal-5 = 100%
 ramp-signal-foreground = ${colors.foreground}
-;ramp-signal-underline = ${colors.blue300-light}
+;ramp-signal-underline = ${colors.foreground}
 
 [module/eth]
 type = internal/network
 interface = enp5s0
 interval = 3.0
-format-connected-underline = ${colors.yellow300}
+format-connected-underline = ${colors.foreground}
 format-connected-prefix = "con"
 format-connected-prefix-foreground = ${colors.green300}
 label-connected =  %local_ip%
@@ -259,10 +271,10 @@ base-temperature = 20
 warn-temperature = 60
 units = true
 format = <ramp> <label>
-format-underline = ${colors.indigo300-light}
+format-underline = ${colors.foreground}
 format-warn = <ramp> <label-warn>
-label = CPU %temperature-c%
-label-warn = CPU %temperature-c%
+label = CPU TEMP %temperature-c%
+label-warn = CPU TEMP %temperature-c%
 label-warn-foreground = ${colors.red300-light}
 ramp-0 = 
 ramp-1 = 
@@ -277,7 +289,7 @@ date = "%A, %d %b %Y"
 time = %H:%M:%S
 ;time-alt = %H:%M:%S
 ;format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.orange300-light}
+format-underline = ${colors.foreground}
 label =  %time%   %date%
 
 [settings]

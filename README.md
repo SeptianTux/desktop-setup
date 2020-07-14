@@ -7,7 +7,7 @@
 
 ## Description
 Wallpaper : [wfwUpfVqrKU.jpg](https://unsplash.com/photos/wfwUpfVqrKU)  
-Font : [ttf-liberation](https://www.archlinux.org/packages/community/any/ttf-liberation)
+Font : [ttf-liberation](https://www.archlinux.org/packages/community/any/ttf-liberation)   
 Terminal : [xfce4-terminal](https://www.archlinux.org/packages/extra/x86_64/xfce4-terminal)  
 Application launcher : [rofi](https://www.archlinux.org/packages/community/x86_64/rofi)  
 GTK theme : [arc-theme](https://github.com/jnsh/arc-theme)  

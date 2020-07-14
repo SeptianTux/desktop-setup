@@ -11,6 +11,6 @@ Font : [ttf-liberation](https://www.archlinux.org/packages/community/any/ttf-lib
 Terminal : [xfce4-terminal](https://www.archlinux.org/packages/extra/x86_64/xfce4-terminal)  
 Application launcher : [rofi](https://www.archlinux.org/packages/community/x86_64/rofi)  
 GTK theme : [arc-theme](https://github.com/jnsh/arc-theme)  
-Window manager : [i3-gaps  ](https://www.archlinux.org/packages/community/x86_64/i3-gaps)
+Window manager : [i3-gaps  ](https://www.archlinux.org/packages/community/x86_64/i3-gaps)   
 Compositor : [compton-tryone-git](https://aur.archlinux.org/packages/compton-tryone-git)  
 Status bar : [polybar](https://aur.archlinux.org/packages/polybar)  

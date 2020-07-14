@@ -1,8 +1,7 @@
 * {
   background-color: rgba(64,69,82,20%);
-//  border-color: rgba(211,218,227,50%);
   border-color: rgba(64,69,82,70%);
-  text-color: rgba(211,218,227,95%);
+  text-color: rgb(211,218,227);
   spacing: 0px;
   width: 512px;
   font: "Liberaton Sans Regular 9";
@@ -12,10 +11,9 @@ window {
   border: 1px;
 }
 
-mainbox {
+//mainbox {
 //  background-color: rgba(64,69,82,20%);
-
-}
+//}
 
 inputbar {
   background-color: rgba(64,69,82,100%);
@@ -23,13 +21,6 @@ inputbar {
   border: 0px;
   children: [prompt,entry];
 }
-
-//prompt {
-//  background-color: rgba(64,132,214,100%);
-//  border-color: rgba(64,69,82,20%);
-//  padding: 8px;
-//  border: 0 0 1px 0;
-//}
 
 prompt {
   background-color: rgba(45,50,61,100%);

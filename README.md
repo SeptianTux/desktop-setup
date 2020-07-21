@@ -1,9 +1,13 @@
 # desktop-setup
 
 ## Screenshot
+### Dark
 ![Screenshot](screenshot/2020-07-02-135501_1920x1080_scrot.png)
 ![Screenshot](screenshot/2020-07-02-135346_1920x1080_scrot.png)
 ![Screenshot](screenshot/2020-07-06-154157_1920x1080_scrot.png)
+
+### Light
+![Screenshot](screenshot/2020-07-21-215435_1920x1080_scrot.png)
 
 ## Description
 Wallpaper : [wfwUpfVqrKU.jpg](https://unsplash.com/photos/wfwUpfVqrKU)  

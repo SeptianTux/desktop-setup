@@ -1,9 +1,14 @@
 [Configuration]
+ColorCursor=#303030303030
+ColorForeground=#303030303030
+ColorBackground=#f5f5f5f5f5f5
+ColorPalette=#151515151515;#acac41414242;#9090a9a95959;#f4f4bfbf7575;#6a6a9f9fb5b5;#aaaa75759f9f;#7575b5b5aaaa;#d0d0d0d0d0d0;#505050505050;#acac41414242;#9090a9a95959;#f4f4bfbf7575;#6a6a9f9fb5b5;#aaaa75759f9f;#7575b5b5aaaa;#f5f5f5f5f5f5
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
 MiscBordersDefault=TRUE
-MiscCursorBlinks=TRUE
+MiscCursorBlinks=FALSE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
 MiscDefaultGeometry=80x24
 MiscInheritGeometry=FALSE
@@ -27,15 +32,6 @@ MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=FALSE
 FontName=Liberation Mono for Powerline 9
-ScrollingLines=5000
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
-BackgroundDarkness=0.750000
-ColorPalette=rgb(45,50,61);rgb(229,115,115);rgb(129,199,132);rgb(255,241,118);rgb(100,181,246);rgb(240,98,146);rgb(77,208,225);rgb(238,232,213);rgb(224,224,224);rgb(255,164,162);rgb(178,250,180);rgb(255,255,168);rgb(155,231,255);rgb(238,152,251);rgb(136,255,255);rgb(253,246,227)
-ColorForeground=#e0e0e0e0e0e0
-ColorBackground=#2d2d32323d3d
-ColorCursor=#93a1a1
-ColorBold=#93a1a1
-TabActivityColor=#f0f062619291
-ColorBoldIsBright=FALSE
-BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+BackgroundDarkness=0.740000
 

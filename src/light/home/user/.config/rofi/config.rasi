@@ -1,7 +1,7 @@
 * {
-  background-color: rgba(64,69,82,20%);
+  background-color: rgba(211,218,227,20%);
   border-color: rgba(64,69,82,70%);
-  text-color: rgb(211,218,227);
+  text-color: rgb(64,69,82);
   spacing: 0px;
   width: 512px;
   font: "Liberaton Sans Regular 9";
@@ -28,6 +28,7 @@ prompt {
   padding: 8px;
 //  margin: 12px 0 12px 12px;
   border: 2px 0 2px 2px;
+  text-color: rgb(211,218,227);
 }
 
 textbox {

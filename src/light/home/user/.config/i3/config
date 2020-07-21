@@ -351,9 +351,10 @@ gaps inner 10
 
 # Color
 # class                 border  backgr. text    indicator child_border
-client.focused          #767b87 #767b87 #d3dae3 #A14769   #767b87
-client.focused_inactive #2d323d #2d323d #d3dae3 #2d323d   #2d323d
-client.unfocused        #2d323d #2d323d #d3dae3 #2d323d   #2d323d
+client.focused          #939394 #939394 #2d323d #A14769   #939394
+client.focused_inactive #939394 #939394 #2d323d #A14769   #939394
+#client.unfocused       #e7e8eb #e7e8eb #2d323d #A14769   #e7e8eb
+client.unfocused        #939394 #939394 #2d323d #A14769   #e7e8eb
 client.urgent           #A14769 #A14769 #767b87 #A14769   #A14769
 client.placeholder      #2d323d #2d323d #d3dae3 #2d323d   #2d323d
 client.background       #d3dae3
@@ -375,7 +376,7 @@ exec --no-startup-id xset s 300
 # Add some rules
 focus_follows_mouse no
 focus_on_window_activation smart
-default_border pixel 2
+default_border pixel 1
 
 # Custom keyboard shorcut
 bindsym XF86AudioPlay exec --no-startup-id tmpc play
@@ -404,7 +405,7 @@ for_window [ title="xfce4-terminal-floating" ] floating enable
 for_window [ class="Gpicview" ] floating enable
 for_window [ class="mpv" ] floating enable
 for_window [ class="ffplay" ] floating enable
-for_window [ class="Sonata" ] floating enable border normal
+for_window [ class="Sonata" ] floating enable
 for_window [ title="Android Emulator*" ] floating enable
 for_window [ title="Emulator" ] floating enable
 for_window [ title="Form" ] floating enable

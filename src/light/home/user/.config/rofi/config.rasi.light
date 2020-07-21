@@ -1,0 +1,62 @@
+* {
+  background-color: rgba(211,218,227,20%);
+  border-color: rgba(64,69,82,70%);
+  text-color: rgb(64,69,82);
+  spacing: 0px;
+  width: 512px;
+  font: "Liberaton Sans Regular 9";
+}
+
+window {
+  border: 1px;
+}
+
+//mainbox {
+//  background-color: rgba(64,69,82,20%);
+//}
+
+inputbar {
+  background-color: rgba(64,69,82,100%);
+  border-color: rgba(211,218,227,50%);
+  border: 0px;
+  children: [prompt,entry];
+}
+
+prompt {
+  background-color: rgba(45,50,61,100%);
+  border-color: rgba(45,50,61,100%);
+  padding: 8px;
+//  margin: 12px 0 12px 12px;
+  border: 2px 0 2px 2px;
+  text-color: rgb(211,218,227);
+}
+
+textbox {
+  padding: 8px 8px;
+  background-color: rgba(64,69,82,50%);
+}
+
+entry {
+  background-color: rgba(211,218,227,100%);
+  padding: 8px;
+//  margin: 12px 12px 12px 0;
+  text-color: rgba(64,69,82,100%);
+  border-color: rgba(45,50,61,100%);
+  border: 2px 2px 2px 0;
+}
+
+listview {
+  cycle: false;
+  margin: 0 0 0 0;
+  scrollbar: false;
+}
+
+element {
+  border: 0;
+  padding: 8px;
+}
+
+element selected {
+  background-color: rgba(64,132,214,100%);
+  text-color: #ffffff;
+}

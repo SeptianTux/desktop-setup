@@ -5,8 +5,8 @@
 # 				Kerusakan pada sistem yang disebabkan oleh skrip ini bukanlah tanggung jawab saya.
 
 pwd_=$(dirname $0)
-home_conf_file=(/etc/xdg/compton.conf $HOME/.fehbg $HOME/.xinitrc $HOME/.ncmpcpp/ $HOME/.config/i3/ $HOME/.config/polybar/ $HOME/.config/powerline/ $HOME/.config/rofi/ $HOME/.config/xfce4/)
-#home_conf_file=(/etc/xdg/compton.conf $HOME/.gtkrc-2.0 $HOME/.fehbg $HOME/.xinitrc $HOME/.ncmpcpp/ $HOME/.config/gtk-3.0 $HOME/.config/gpicview/ $HOME/.config/i3/ $HOME/.config/polybar/ $HOME/.config/powerline/ $HOME/.config/rofi/ $HOME/.config/xfce4/)
+#home_conf_file=(/etc/xdg/compton.conf $HOME/.fehbg $HOME/.xinitrc $HOME/.ncmpcpp/ $HOME/.config/i3/ $HOME/.config/polybar/ $HOME/.config/powerline/ $HOME/.config/rofi/ $HOME/.config/xfce4/)
+home_conf_file=(/etc/xdg/compton.conf $HOME/.gtkrc-2.0 $HOME/.fehbg $HOME/.xinitrc $HOME/.ncmpcpp/ $HOME/.config/gtk-3.0 $HOME/.config/gpicview/ $HOME/.config/i3/ $HOME/.config/polybar/ $HOME/.config/powerline/ $HOME/.config/rofi/ $HOME/.config/xfce4/)
 runtime_dependencies=(sudo sed grep)
 
 ifFail() {

@@ -1,8 +1,4 @@
 [Configuration]
-ColorCursor=#464646464646
-ColorForeground=#464646464646
-ColorBackground=#f7f7f7f7f7f7
-ColorPalette=#101010101010;#7c7c7c7c7c7c;#8e8e8e8e8e8e;#a0a0a0a0a0a0;#686868686868;#747474747474;#868686868686;#b9b9b9b9b9b9;#525252525252;#7c7c7c7c7c7c;#8e8e8e8e8e8e;#a0a0a0a0a0a0;#686868686868;#747474747474;#868686868686;#f7f7f7f7f7f7
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
@@ -34,4 +30,10 @@ MiscShowUnsafePasteDialog=FALSE
 FontName=Liberation Mono for Powerline 9
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 BackgroundDarkness=0.740000
+ColorForeground=#515152525353
+ColorBackground=#fcfcfdfdfefe
+ColorPalette=rgb(12,13,14);rgb(176,63,64);rgb(48,133,74);rgb(158,109,57);rgb(65,118,181);rgb(80,64,177);rgb(71,144,196);rgb(183,184,185);rgb(72,73,74);rgb(176,63,64);rgb(48,133,74);rgb(158,109,57);rgb(65,118,181);rgb(80,64,177);rgb(71,144,196);rgb(252,253,254)
+ColorCursorUseDefault=FALSE
+ColorCursorForeground=#52519493e2e2
+ColorCursor=#52519493e2e2
 

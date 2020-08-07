@@ -96,7 +96,7 @@ setConf() {
 		then
 			if [ -d ${file_src[$counter]} ]
 			then
-				cp -rv ${file_src[$counter]}* ${file_dest[$counter]}
+				cp -rv ${file_src[$counter]}/* ${file_dest[$counter]}
 
 				ifFail $? "Error : copy file"
 			else

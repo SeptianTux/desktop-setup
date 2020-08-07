@@ -2,9 +2,9 @@
 background = #b3d3dae3
 #background-trans = #cc2d323d
 #background-trans = #b32d323d
-background-trans = #b3d3dae3
+background-trans = #b3000000
 background-alt = #b3d3dae3
-foreground = #404552
+foreground = #d3dae3
 foreground-alt = #404552
 primary = #ffb52a
 secondary = #e60053
@@ -140,7 +140,7 @@ label-mode-foreground = ${colors.background}
 label-mode-background = ${colors.foreground}
 label-focused = %index%
 label-focused-background = ${colors.selected-bg}
-label-focused-foreground = ${colors.background}
+label-focused-foreground = ${colors.foreground}
 label-focused-underline= ${colors.foreground}
 label-focused-padding = 2
 label-unfocused = %index%
@@ -169,7 +169,7 @@ label-underline = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
-interface = wlp1s0f0u4
+interface = wlp6s0f3u2
 interval = 3.0
 format-connected = <label-connected> <ramp-signal>
 format-connected-underline = ${colors.foreground}

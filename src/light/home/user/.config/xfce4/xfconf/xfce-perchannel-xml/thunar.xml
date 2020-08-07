@@ -14,7 +14,7 @@
   <property name="tree-icon-size" type="string" value="THUNAR_ICON_SIZE_16"/>
   <property name="shortcuts-icon-emblems" type="bool" value="true"/>
   <property name="tree-icon-emblems" type="bool" value="true"/>
-  <property name="last-separator-position" type="int" value="170"/>
+  <property name="last-separator-position" type="int" value="163"/>
   <property name="last-show-hidden" type="bool" value="false"/>
   <property name="last-side-pane" type="string" value="ThunarShortcutsPane"/>
   <property name="last-statusbar-visible" type="bool" value="true"/>

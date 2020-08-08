@@ -351,7 +351,7 @@ gaps inner 10
 
 # Color
 # class                 border  backgr. text    indicator child_border
-client.focused          #767b87 #767b87 #d3dae3 #A14769   #767b87
+client.focused          #A8AEB5 #A8AEB5 #2d323d #A14769   #A8AEB5
 client.focused_inactive #2d323d #2d323d #d3dae3 #2d323d   #2d323d
 client.unfocused        #2d323d #2d323d #d3dae3 #2d323d   #2d323d
 client.urgent           #A14769 #A14769 #767b87 #A14769   #A14769
@@ -375,7 +375,7 @@ exec --no-startup-id xset s 300
 # Add some rules
 focus_follows_mouse no
 focus_on_window_activation smart
-default_border pixel 2
+default_border pixel 1
 
 # Custom keyboard shorcut
 bindsym XF86AudioPlay exec --no-startup-id tmpc play

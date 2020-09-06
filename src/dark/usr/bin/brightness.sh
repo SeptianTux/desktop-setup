@@ -14,7 +14,7 @@ termIfNotRoot() {
 get() {
 	termIfNotRoot
 	
-	ddcutil getvcp 10 | awk '{ print $9 }' | sed 's/,//g'
+	ddcutil --less-sleep getvcp 10 | awk '{ print $9 }' | sed 's/,//g'
 }
 
 set() {
@@ -22,7 +22,7 @@ set() {
 	
 	if [ ! -z $1 ]
 	then
-		ddcutil setvcp 10 $1
+		ddcutil --less-sleep setvcp 10 $1
 	else
 		echo "Do nothing."
 	fi
@@ -31,19 +31,19 @@ set() {
 increase() {
 	termIfNotRoot
 
-	ddcutil setvcp 10 + 5
+	ddcutil --less-sleep setvcp 10 + 5
 }
 
 decrease() {
 	termIfNotRoot
 
-	ddcutil setvcp 10 - 5
+	ddcutil --less-sleep setvcp 10 - 5
 }
 
 check() {
 	termIfNotRoot
 	
-	ddcutil capabilities | grep -c "Feature: 10"
+	ddcutil --less-sleep capabilities | grep -c "Feature: 10"
 }
 
 helpMe() {

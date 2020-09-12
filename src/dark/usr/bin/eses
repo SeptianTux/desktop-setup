@@ -1,0 +1,151 @@
+#!/bin/bash
+
+
+# Dependensi :
+#				- bash
+#				- flameshot
+#				- sed
+#				- coreutils
+#				- zenity
+#				- libnotify
+
+
+SAVE_DIR=$HOME/$USER
+TMP_DIR="/tmp"
+SELF="$(basename $0)"
+ESES_FILE=""
+
+errorMsg() {
+	local err_msg=""
+
+	if [ -z $! ]
+	then
+		err_msg="$1"
+	else
+		err_msg="Unknown error."
+	fi
+
+	zenity --error --text="$err_msg" --ellipsize
+}
+
+notif() {
+	notify-send -a "flameshot" -i "flameshot" "$1"
+}
+
+tmpDirGen() {
+	if [ ! -d $TMP_DIR ]
+	then
+		errorMsg "/tmp dir not found"
+		exit 99
+	fi
+
+	while [ -d "$TMP_DIR" ]
+	do
+		TMP_DIR="/tmp/$SELF-$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo '')"
+	done
+
+	mkdir "$TMP_DIR"
+}
+
+mvFile() {
+	ESES_FILE=$2/"Screenshot_"$(echo $(basename $1) | sed "s/\.$ext/-$(date +%N)\.${1/*./}/g")
+	mv $1 $ESES_FILE
+}
+
+cleanup() {
+	rm -rf $TMP_DIR
+}
+
+permCheck() {
+	local dir=""
+
+	if [ ! -d "$1" ]
+	then
+		errorMsg "$1 is not exist"
+		cleanup
+		exit 3
+	fi
+
+	if [ -w "$1" ]
+	then
+		echo 1
+	else
+		echo 0
+	fi
+}
+
+zenitySelectDir() {
+	if [ -d $1 ]
+	then
+		SAVE_DIR="$1"
+	fi
+
+	zenity --name="Screenshot" --class="Choose a directory" --file-selection --directory --filename="$SAVE_DIR"
+}
+
+esesFull() {
+	flameshot full -p "$TMP_DIR"
+	
+	SAVE_DIR=$(zenitySelectDir "$1")
+
+	if [ -z "$SAVE_DIR" ]
+	then
+		cleanup
+		exit 0
+	fi
+
+	if [ $(permCheck "$SAVE_DIR") -eq 0 ]
+	then
+		errorMsg "Unable to save file: Permission denied"
+
+		cleanup
+
+		exit 1
+	fi
+
+	mvFile "$TMP_DIR"/*.png "$SAVE_DIR"
+
+	notif "$(echo -e "Screenshot\nCaptue saved as $SAVE_DIR/$ESES_FILE")"
+}
+
+esesSelect() {
+	flameshot gui -p "$TMP_DIR"
+
+	SAVE_DIR=$(zenitySelectDir "$1")
+	
+	if [ -z "$SAVE_DIR" ]
+	then
+		cleanup
+		exit 0
+	fi
+		
+	if [ $(permCheck "$SAVE_DIR") -eq 0 ]
+	then
+		errorMsg "Unable to save file: Permission denied"
+		
+		cleanup
+
+		exit 1
+	fi
+
+	mvFile "$TMP_DIR"/*.png "$SAVE_DIR"
+	
+	notif "$(echo -e "Screenshot\nCaptue saved as $SAVE_DIR/$ESES_FILE")"
+}
+
+fire() {
+	tmpDirGen
+
+	case $1 in
+		"select" ) esesSelect "$1"
+			;;
+		"full" ) esesFull "$1"
+			;;
+		* ) esesFull "$1"
+			;;
+	esac
+
+	cleanup
+}
+
+fire $*

@@ -57,7 +57,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Rofi menu
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -combi-modi drun  -show combi -icon-theme "Papirus" -show-icons
 
 # change focus
 bindsym $mod+j focus left
@@ -368,6 +368,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id /usr/bin/pulseeffects --gapplication-service
 exec --no-startup-id /usr/bin/nightmode auto
 exec --no-startup-id /usr/bin/parcellite -n 
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd 
 exec --no-startup-id /usr/bin/xfce4-volumed-pulse
 exec --no-startup-id thunar --daemon
 exec --no-startup-id mpd
@@ -385,12 +386,12 @@ bindsym F8 exec --no-startup-id tmpc stop
 bindsym XF86AudioNext exec --no-startup-id tmpc next
 bindsym XF86AudioPrev exec --no-startup-id tmpc prev
 bindsym $mod+Shift+N exec --no-startup-id nightmode on-off
-bindsym $mod+Shift+w exec --no-startup-id rofi -show windowcd
+bindsym $mod+Shift+w exec --no-startup-id rofi -combi-modi window  -show combi -icon-theme "Papirus" -show-icons
 bindsym Ctrl+$mod+E exec --no-startup-id rofi -show emoji -modi emoji
 bindsym $mod+Shift+Return exec --no-startup-id xfce4-terminal --initial-title="xfce4-terminal-floating"
 bindsym Ctrl+$mod+l exec --no-startup-id tynlock
-bindsym Print exec --no-startup-id flameshot full -p ~/Pictures
-bindsym Shift+Print exec --no-startup-id flameshot gui -p ~/Pictures
+bindsym Print exec --no-startup-id eses full
+bindsym Shift+Print exec --no-startup-id eses select
 bindsym $mod+t border pixel 1
 bindsym $mod+y border pixel 2
 bindsym $mod+u border pixel 3
@@ -398,6 +399,8 @@ bindsym $mod+i border pixel 4
 bindsym $mod+o border pixel 5
 bindsym $mod+p border pixel 6
 bindsym $mod+Ctrl+Return exec --no-startup-id /home/septian/.local/bin/terminal-big.sh
+bindsym Ctrl+Shift+Left exec --no-startup-id sudo brightness.sh decrease
+bindsym Ctrl+Shift+Right exec --no-startup-id sudo brightness.sh increase
 
 # Window rules
 for_window [ title="XBindKey: Hit a key" ] floating enable

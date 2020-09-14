@@ -139,8 +139,8 @@ label-mode-padding = 2
 label-mode-foreground = ${colors.background}
 label-mode-background = ${colors.foreground}
 label-focused = %index%
-label-focused-background = ${colors.selected-bg}
-label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.foreground}
+label-focused-foreground = ${colors.background}
 label-focused-underline= ${colors.foreground}
 label-focused-padding = 2
 label-unfocused = %index%
@@ -169,7 +169,7 @@ label-underline = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
-interface = wlp6s0f3u2
+interface = wlp1s0f0u4
 interval = 3.0
 format-connected = <label-connected> <ramp-signal>
 format-connected-underline = ${colors.foreground}

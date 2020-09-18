@@ -57,7 +57,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Rofi menu
-bindsym $mod+d exec --no-startup-id rofi -combi-modi drun  -show combi -icon-theme "Papirus" -show-icons
+bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -icon-theme "Papirus-Light"
 
 # change focus
 bindsym $mod+j focus left
@@ -386,7 +386,7 @@ bindsym F8 exec --no-startup-id tmpc stop
 bindsym XF86AudioNext exec --no-startup-id tmpc next
 bindsym XF86AudioPrev exec --no-startup-id tmpc prev
 bindsym $mod+Shift+N exec --no-startup-id nightmode on-off
-bindsym $mod+Shift+w exec --no-startup-id rofi -combi-modi window  -show combi -icon-theme "Papirus" -show-icons
+bindsym $mod+Shift+w exec --no-startup-id rofi -show window -show-icons -icon-theme "Papirus-Light"
 bindsym Ctrl+$mod+E exec --no-startup-id rofi -show emoji -modi emoji
 bindsym $mod+Shift+Return exec --no-startup-id xfce4-terminal --initial-title="xfce4-terminal-floating"
 bindsym Ctrl+$mod+l exec --no-startup-id tynlock
